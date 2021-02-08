@@ -25,12 +25,12 @@ namespace RequestProcessor.App
             if (requestOptions == null) throw new ArgumentNullException(nameof(requestOptions));
 
             if (!requestOptions.IsValid) throw new ArgumentOutOfRangeException(nameof(requestOptions));
-            _logger.Log($"Request: {{{requestOptions.Name}}} -> Request options are valid");
+            _logger.Log($"Request: {{{requestOptions.Name}}} -> request options are valid");
 
             using var message = new HttpRequestMessage(
                 HttpMethodMapping.MapMethod(requestOptions.Method),
                 new Uri(requestOptions.Address));
-            _logger.Log("$Request: {{{ requestOptions.Name}}} -> Message was successfully created");
+            _logger.Log("$Request: {{{ requestOptions.Name}}} -> message was successfully created");
 
             if (requestOptions.Body != null)
             {
@@ -45,7 +45,7 @@ namespace RequestProcessor.App
 
             string content = await GetContent(response);
 
-            _logger.Log($"Request: {{{requestOptions.Name}}} -> Creating and returning response");
+            _logger.Log($"Request: {{{requestOptions.Name}}} -> creating and returning response");
             return new Response(
                 (int)response.StatusCode, 
                 content, 

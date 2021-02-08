@@ -23,10 +23,10 @@ namespace RequestProcessor.App
                 throw new ArgumentNullException(nameof(responseOptions));
 
             string result = $"Status code: {{{response.Code}}}  Request: {{{requestOptions.Name}}} to {{{requestOptions.Address}}} was Handled {{{response.Handled}}}\n Content: {response.Content}";
-            _logger.Log($"Request -> {{{requestOptions.Name}}}: request result was written as a string");
+            _logger.Log($"Request: {{{requestOptions.Name}}} -> request result was written as a string");
 
             await File.WriteAllTextAsync(responseOptions.Path, result);
-            _logger.Log($"Request -> {{{requestOptions.Name}}}: request result string was written to the result file {{{responseOptions.Path}}}");
+            _logger.Log($"Request: {{{requestOptions.Name}}} -> request result string was written to the result file {{{responseOptions.Path}}}");
         }
     }
 }
