@@ -47,11 +47,11 @@ namespace RequestProcessor.App.Services
 
             if (!requestOptions.IsValid)
                 throw new ArgumentOutOfRangeException(nameof(responseOptions));
-            _logger.Log("Request options are valid");
+            _logger.Log($"Request: {{{requestOptions.Name}}} -> request options are valid");
 
             if (!responseOptions.IsValid)
                 throw new ArgumentOutOfRangeException(nameof(responseOptions));
-            _logger.Log("Response options are valid");
+            _logger.Log($"Request: {{{requestOptions.Name}}} -> response options are valid");
 
             try
             {
